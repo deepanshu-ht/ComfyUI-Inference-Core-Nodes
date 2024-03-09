@@ -25,10 +25,7 @@ def main() -> None:
 
     cuda_version = try_get_cuda_version()
     if cuda_version is not None:
-        if cuda_version.startswith("12."):
-            pip_install(["-e", ".[cuda-12]"])
-        else:
-            pip_install(["-e", ".[cuda]"])
+        pip_install(["-e", ".[cuda]"])
     else:
         # Default install
         pip_install(["-e", ".[cpu]"])
